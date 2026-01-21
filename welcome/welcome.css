@@ -1,0 +1,15 @@
+.welcome-header {
+    font-size: 100px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin: 0;
+    font-family: "Playfair Display", serif;
+}
+h2 {
+    margin: 0;
+}
+p {
+    padding-bottom: 18px;
+    font-family: "Calibri Light", Calibri, "Segoe UI", Arial, sans-serif;
+    font-weight: 300;
+}

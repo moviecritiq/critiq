@@ -1,0 +1,195 @@
+
+/* Main Container */
+.container {
+    max-width: var(--container-max-width);
+    width: 60vw;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+}
+.matchup {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center;
+}
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+/* Movie Card */
+.poster-placeholder {
+    max-width: 500px;
+    width: 100%;
+    background: #09101a;
+    border-radius: 6px;
+    aspect-ratio: 2 / 3;
+}
+.movie {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid var(--glass);
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease;
+    width: 100%;
+    position: relative;
+}
+.movie:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(12, 14, 20, 0.6);
+}
+.poster {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+}
+
+/* Movie Meta */
+/* Info icon button in corner */
+.movie .info-icon {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    background: rgba(124, 92, 255, 0.9);
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 20px;
+    color: white;
+    transition: all 220ms ease;
+    box-shadow: 0 4px 12px rgba(124, 92, 255, 0.4);
+}
+
+.movie .info-icon:hover {
+    background: rgba(124, 92, 255, 1);
+    box-shadow: 0 6px 16px rgba(124, 92, 255, 0.6);
+    transform: scale(1.1);
+}
+
+/* Tooltip/popup that shows on info icon hover */
+.movie .meta {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 300px;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(2,6,23,0.98) 0%, rgba(2,6,23,0.92) 100%);
+    border: 1px solid var(--glass);
+    color: #e6eef8;
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+    transition: opacity 220ms ease, transform 220ms ease;
+    pointer-events: none;
+    border-radius: 8px 8px 50px 8px;
+    z-index: 30;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+/* Reveal tooltip on info icon hover */
+.movie .info-icon:hover ~ .meta,
+.movie .meta:hover {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* Tooltip title styling */
+.movie .meta .title {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    color: var(--accent);
+    line-height: 1.2;
+}
+
+/* Tooltip synopsis */
+.movie .meta p {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    color: #cbd7e6;
+    line-height: 1.4;
+    max-height: 150px;
+    overflow: auto;
+}
+
+/* Hide scrollbar in tooltip */
+.movie .meta p::-webkit-scrollbar {
+    display: none;
+}
+
+.movie .meta p {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Fade gradient at bottom of synopsis */
+.movie .meta p::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,0.95) 85%);
+}
+
+/* Release date styling */
+.movie .meta .release-date {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: auto;
+    margin-bottom: 12px;
+}
+
+/* Remove button in tooltip */
+.remove-btn {
+    width: 80%;
+    padding: 8px 12px;
+    background: rgba(255, 59, 48, 0.2);
+    border: 1px solid rgba(255, 59, 48, 0.5);
+    color: #ff3b30;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 220ms ease;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.remove-btn:hover {
+    background: rgba(255, 59, 48, 0.4);
+    border-color: rgba(255, 59, 48, 0.8);
+    box-shadow: 0 0 12px rgba(255, 59, 48, 0.3);
+}
+
+.remove-btn:active {
+    transform: scale(0.98);
+}
+
+.meta { margin-top: 10px; text-align: left; }
+
+
+/* Scaling */
+@media (max-width: 640px) {
+    .matchup {
+        flex-direction: column;
+    }
+
+    .poster {
+        width: 100%;
+        height: auto;
+        max-width: 320px;
+    }
+}

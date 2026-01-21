@@ -1,0 +1,66 @@
+:root {
+    /* Colors */
+    --bg1: #0f172a;
+    --bg2: #0b1220;
+    --card: #0f1724;
+    --muted: #9aa4b2;
+    --accent: #7c5cff;
+    --accent-tint: rgba(124, 92, 255, 0.12);
+    --glass: rgba(255, 255, 255, 0.04);
+
+    /* Layout sizes */
+    --container-max-width: 1056px;
+    --sidebar-max-width: 260px;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    color: #e6eef8;
+    background: linear-gradient(180deg, var(--bg1), var(--bg2));
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+}
+.header {
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    position: absolute;
+    top: 18px;
+    left: 24px;
+    transform: none;
+    z-index: 101;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 220ms ease;
+}
+
+.header:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* Buttons */
+.btn {
+    background: transparent; border: 1px solid rgba(255,255,255,0.06);
+    color: var(--muted); padding: 10px 14px; border-radius: 8px; cursor: pointer; font-weight: 600;
+    font-size: 20px;
+    width: 200px;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+.btn:hover { background: rgba(255,255,255,0.02); }
+.btn.primary { background: linear-gradient(90deg, var(--accent), #5ad1ff); color: #021026; border: none; }
+.navigation {
+    position: fixed;
+    bottom: 18px;
+    left: 18px;
+}
